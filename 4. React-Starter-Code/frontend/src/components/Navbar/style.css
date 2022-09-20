@@ -1,0 +1,8 @@
+.navDiv{
+    display: flex;
+    gap: 40px;
+}
+.dasDiv{
+    display: flex;
+    gap: 40px;
+}

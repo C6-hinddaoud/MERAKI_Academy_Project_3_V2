@@ -1,0 +1,11 @@
+.regDiv{
+border: 2px rgb(178, 178, 227) solid;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 500px;
+    height: 500px;
+    align-self: center;
+    justify-self: center;
+    /* grid-template-columns: ; */
+}
