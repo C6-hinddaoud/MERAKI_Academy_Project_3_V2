@@ -9,6 +9,7 @@ const AddArticle = () => {
   const token=BoleanCon.token
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [message, setMessage] = useState("");
   const AddNewArticle = () => {
     console.log("mygi", token);
     console.log("mmnmn", title);
@@ -30,8 +31,10 @@ const AddArticle = () => {
       .then((response) => {
         console.log("hind");
         console.log(response);
+        setMessage(response.data.message)
       })
       .catch((err) => {
+        setMessage( err.response.data.message)
         console.log("pppppppp", token);
         console.log("mmnmn", title);
         console.log("rasha");
@@ -48,6 +51,7 @@ const AddArticle = () => {
 
       <input onChange={(e)=>{setDescription(e.target.value)} }  type={"text"} placeholder={"description"}></input>
         <button onClick={AddNewArticle}> AddArtical</button>
+       <div> <label>{message}</label></div>
       </div>
     </>
   );

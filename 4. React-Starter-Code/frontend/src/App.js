@@ -42,7 +42,7 @@ const[token,setToken]= useState("")
 
 </div>
       <div>
-      <h1>Welcome To APP</h1>
+     
       {/* <Navbar/>
       <Routes>
       

@@ -49,7 +49,7 @@ const articlesRouter = express.Router();
 articlesRouter.get("/",authentication, getAllArticles);
 articlesRouter.get("/search_1", getArticlesByAuthor);
 articlesRouter.get("/search_2", getArticleById);
-articlesRouter.post("/",authentication,authorization("CREATE_ARTICLES"), createNewArticle);
+articlesRouter.post("/",authentication,authorization("CREATE_COMMENTS"), createNewArticle);
 articlesRouter.put("/:id", updateArticleById);
 articlesRouter.delete("/:id", deleteArticleById);
 articlesRouter.delete("/:id/author", deleteArticlesByAuthor);
