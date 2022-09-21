@@ -1,0 +1,7 @@
+.artDiv{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border: 2px rgb(157, 157, 224) solid;
+    /* background-color:rgb(157, 157, 224) ; */
+}

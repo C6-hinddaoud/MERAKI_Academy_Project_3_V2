@@ -7,19 +7,20 @@ import axios from "axios";
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
 import AddArticle from "./components/AddArticle"
-export const tokenContext=createContext();
-export const setBoleanContext=createContext();
+// export const tokenContext=createContext();
+// export const setBoleanContext=createContext();
 
-export const settokenContext=createContext();
+// export const settokenContext=createContext();
 export const BoleanContext=createContext()
 const App = () => {
 
 
 const [isLoggedIn,setIsLoggedIn]=useState(false)
+const [articaData,setarticaData]=useState([])
 console.log("iss",isLoggedIn)
 const[token,setToken]= useState("")
   return (
-    <BoleanContext.Provider value={{isLoggedIn,setIsLoggedIn,token,setToken}}>
+    <BoleanContext.Provider value={{isLoggedIn,setIsLoggedIn,token,setToken,articaData,setarticaData}}>
     {/* <setBoleanContext.Provider value={setIsLoggedIn}>
       
     <settokenContext.Provider value={setToken}>
