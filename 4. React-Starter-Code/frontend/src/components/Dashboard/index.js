@@ -17,6 +17,31 @@ const Dashboard = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+const getallartical=()=>{
+    axios
+    .get("http://localhost:5000/articles", {
+      headers: {
+        authorization: "Bearer " + token,
+      },
+    })
+    .then((response) => {
+      console.log("hind");
+      setarticaData(response.data.articles);
+      console.log("am", response.data);
+      setUserId(response.data.userId);
+      console.log(userId);
+      setMessage(response.data.message);
+    })
+    .catch((err) => {
+      setMessage(err.response.data.message);
+      console.log("pppppppp", token);
+
+      console.log("rasha");
+      console.log(err);
+    });
+}
+
+
   const Delete = (id) => {
     console.log("lkij");
     axios
@@ -25,6 +50,7 @@ const Dashboard = () => {
         console.log("bbhbhbhb");
         console.log("cc", response.data);
         console.log("ll", response.data);
+        getallartical()
       })
       .catch((err) => {
         // console.log(id)
@@ -38,9 +64,7 @@ const Dashboard = () => {
     axios
       .put(`http://localhost:5000/articles/${id}`, { title, description })
       .then((response) => {
-        console.log("bbhbhbhb");
-        console.log("cc", response.data);
-        console.log("ll", response.data);
+        getallartical()
       })
       .catch((err) => {
         // console.log(id)
@@ -50,29 +74,30 @@ const Dashboard = () => {
   };
 
 
-  
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/articles", {
-        headers: {
-          authorization: "Bearer " + token,
-        },
-      })
-      .then((response) => {
-        console.log("hind");
-        setarticaData(response.data.articles);
-        console.log("am", response.data);
-        setUserId(response.data.userId);
-        console.log(userId);
-        setMessage(response.data.message);
-      })
-      .catch((err) => {
-        setMessage(err.response.data.message);
-        console.log("pppppppp", token);
 
-        console.log("rasha");
-        console.log(err);
-      });
+  useEffect(() => {
+    getallartical()
+    // axios
+    //   .get("http://localhost:5000/articles", {
+    //     headers: {
+    //       authorization: "Bearer " + token,
+    //     },
+    //   })
+    //   .then((response) => {
+    //     console.log("hind");
+    //     setarticaData(response.data.articles);
+    //     console.log("am", response.data);
+    //     setUserId(response.data.userId);
+    //     console.log(userId);
+    //     setMessage(response.data.message);
+    //   })
+    //   .catch((err) => {
+    //     setMessage(err.response.data.message);
+    //     console.log("pppppppp", token);
+
+    //     console.log("rasha");
+    //     console.log(err);
+    //   });
   }, []);   //upDate//Delete
 
   const navigate = useNavigate();
@@ -95,10 +120,7 @@ const Dashboard = () => {
       )
       .then((response) => {
         console.log("hind");
-       // setarticaData(response.data.articles);
-       // console.log("am", response.data);
-        // setUserId(response.data.userId);
-       // console.log(userId);
+        getallartical()
         setMessage(response.data.message);
       })
       .catch((err) => {
