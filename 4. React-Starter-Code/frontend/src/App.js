@@ -36,7 +36,7 @@ const[token,setToken]= useState("")
       <Route path='/login' element={<Login/>}/> 
       <Route path='*' element={<p>not found 404</p>}/> 
 
-      <Route path='/dashboard' element={<Dashboard/>}/> 
+      <Route path='/Dashboard' element={<Dashboard/>}/> 
       <Route path='/AddArticle' element={<AddArticle/>}/> 
       <Route path='*' element={<p>not found 404</p>}/> 
      </Routes>

@@ -12,7 +12,7 @@ const [country, setCountry] = useState("");
 const [email, setEmail] = useState("");
 const [password, setpassword] = useState("");
 const [ADMIN, setADMIN] = useState("6328d052565694a02a797353");
-const [USER, setUSER] = useState("6328d07c565694a02a797355");
+const [USER, setUSER] = useState("632b477c77a3ea1a3b138f36");
 const addUser = () => {
   axios
     .post("http://localhost:5000/Users", {
@@ -22,7 +22,7 @@ const addUser = () => {
       country,
       email,
       password,
-      role: ADMIN,
+      role: USER,
     })
     .then((response) => {
       console.log(response);

@@ -8,7 +8,9 @@ import './style.css'
 const Navbar=()=>{
 const navigate=useNavigate()
 const isTuree=useContext(BoleanContext)
-const isTure=isTuree.setIsLoggedIn
+const isTure=isTuree.isLoggedIn
+const settrue=isTuree.setIsLoggedIn
+//isLoggedIn,setIsLoggedIn
     return(
 
     
@@ -25,6 +27,9 @@ const isTure=isTuree.setIsLoggedIn
 <div className="DashNav" onClick={()=>{navigate('/Dashboard')}} > Dashboard</div>
 <div className="logNav" onClick={()=>{navigate( "/AddArticle")}} >AddArticle</div>
 <div className="bakNav" onClick={()=>{navigate(-1)}}>GO Back</div>
+<div className="bakNav" onClick={()=>{navigate("/login")
+ settrue(false)}}>Log out</div>
+
 </div>
 
     )
