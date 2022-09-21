@@ -14,7 +14,9 @@ const Dashboard=()=>{
     const [message, setMessage] = useState("");
     const[userId,setUserId]=useState("");
 
-
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+   
 
 
 
@@ -38,7 +40,24 @@ const Dashboard=()=>{
 
 
 
+const upDate=(id)=>{
 
+    console.log("mo")
+    axios.put(`http://localhost:5000/articles/${id}`,{title,
+    description,})
+    .then((response)=>{
+        
+        console.log("bbhbhbhb")
+console.log("cc",response.data)
+console.log("ll", response.data)
+
+    })
+    .catch((err)=>{
+       // console.log(id)
+        console.log("ahmad")
+        throw err
+    })
+}
 
 
 
@@ -132,7 +151,13 @@ console.log(err);
 {elem.author==userId&&
 <div>
 <button onClick={()=>{Delete(elem._id)}}> Delete</button>
-<button onClick={()=>{upDate(elem._id)}}> update</button></div>}
+<button onClick={()=>{upDate(elem._id)}}> update</button>
+
+<input onChange={(e)=>{setTitle(e.target.value)} }  type={"text"} placeholder={"text"}></input>
+
+      <input onChange={(e)=>{setDescription(e.target.value)} }  type={"text"} placeholder={"description"}></input>
+
+</div>}
 <p>{elem._id}</p>
 {elem.comments.map((element)=>{
    return {element}
