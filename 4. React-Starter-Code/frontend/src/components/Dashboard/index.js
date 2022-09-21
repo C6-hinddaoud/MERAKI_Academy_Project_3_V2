@@ -13,6 +13,37 @@ const Dashboard=()=>{
     const setarticaData=BoleanCon.setarticaData
     const [message, setMessage] = useState("");
     const[userId,setUserId]=useState("");
+
+
+
+
+
+
+    const Delete=(id)=>{
+        console.log("lkij")
+        axios.delete(`http://localhost:5000/articles/${id}`)
+        .then((response)=>{
+            
+            console.log("bbhbhbhb")
+    console.log("cc",response.data)
+    console.log("ll", response.data)
+    
+        })
+        .catch((err)=>{
+           // console.log(id)
+            console.log("ahmad")
+            throw err
+        })
+    }
+
+
+
+
+
+
+
+
+
 useEffect(()=>{
 
 axios.get("http://localhost:5000/articles",{
@@ -38,7 +69,7 @@ axios.get("http://localhost:5000/articles",{
 
 
 
-},[])
+},[])//Delete
 
 
 
@@ -48,7 +79,7 @@ const[comment,setComment]=useState("")
 const addComment=()=>{
 axios.post(`"http://localhost:5000/632a467e5378a8b47a592414/comments`,{
     comment,
-  
+   
 } ,{headers:{
     authorization: "Bearer " + token
   } } 
@@ -70,32 +101,47 @@ console.log(err);
 });
 
 
-
 }
+
+
+
+
+
+
+
+
+
+
     return(
 
         
 <div className="navDiv">
     <div>
 
-    <div>
+    {articaData==undefined?<h1>no artical</h1>  :<div>
 
     { articaData.map((elem,i)=>{
       return( 
+       
       <div className="artDiv">
+        
       <div >
  <h3>title:{ elem.title}</h3>   
 <p> description:{elem.description  }</p>
-<button onClick={addComment}> Delete</button>
-<button onClick={addComment}> update</button>
+
+{elem.author==userId&&
+<div>
+<button onClick={()=>{Delete(elem._id)}}> Delete</button>
+<button onClick={()=>{upDate(elem._id)}}> update</button></div>}
 <p>{elem._id}</p>
 {elem.comments.map((element)=>{
    return {element}
 })}
       </div>
-      
+     
       
       <div>
+         
       <input onChange={(e)=>{setComment(e.target.value)} }  type={"text"} placeholder={"comment"}></input>
 
       
@@ -108,7 +154,7 @@ console.log(err);
 })}
 
     </div>
-
+}
 
     </div>
 
