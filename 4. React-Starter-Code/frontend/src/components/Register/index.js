@@ -13,6 +13,7 @@ const [email, setEmail] = useState("");
 const [password, setpassword] = useState("");
 const [ADMIN, setADMIN] = useState("6328d052565694a02a797353");
 const [USER, setUSER] = useState("632b477c77a3ea1a3b138f36");
+const [message, setMessage] = useState("");
 const addUser = () => {
   axios
     .post("http://localhost:5000/Users", {
@@ -26,9 +27,11 @@ const addUser = () => {
     })
     .then((response) => {
       console.log(response);
+      setMessage(response.data.message)
     })
     .catch((err) => {
       console.log(err);
+      setMessage(err.response.data.message)
     });
 };
 
@@ -70,6 +73,9 @@ const addUser = () => {
 
       <input onChange={(e)=>{setpassword(e.target.value)} }  type={"password"} placeholder={" Password"}></input>
       <button onClick={addUser}> Register</button>
+<div  className="reqMessage">
+      <label>{message}</label>
+      </div>
     </div>
   );
 };

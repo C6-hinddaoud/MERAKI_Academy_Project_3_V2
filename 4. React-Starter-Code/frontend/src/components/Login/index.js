@@ -36,13 +36,13 @@ const SetBoleanCon=BoleanCon.setIsLoggedIn
         // role: ADMIN,
       })
       .then((response) => {
-        console.log("kj");
-        console.log(response);
+        // console.log("kj");
+        // console.log(response);
         setMessage(response.data.message);
         SetToken(response.data.token);
         SetBoleanCon(true)
-        console.log(response.data);
-        console.log("tokenb", token);
+        // console.log(response.data);
+        // console.log("tokenb", token);
         
         {navigate('/Dashboard')}
             
@@ -53,7 +53,7 @@ const SetBoleanCon=BoleanCon.setIsLoggedIn
       .catch((err) => {
         setMessage(err.response.data.message);
         SetBoleanCon(false)
-        console.log(err);
+       // console.log(err);
       });
 
 

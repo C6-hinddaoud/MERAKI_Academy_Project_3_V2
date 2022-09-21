@@ -9,3 +9,8 @@ border: 2px rgb(178, 178, 227) solid;
     justify-self: center;
     /* grid-template-columns: ; */
 }
+.reqMessage{
+
+    color: white;
+    background-color:rgb(121, 123, 157)
+}
