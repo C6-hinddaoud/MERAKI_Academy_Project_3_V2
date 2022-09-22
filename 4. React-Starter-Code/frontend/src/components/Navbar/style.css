@@ -3,18 +3,28 @@
     gap: 40px;
     display: flex;
     gap: 40px;
+    background-color: darkblue;
+    width: 453px;
     /* border-block-color: red; */
-    background-color: #8e91c5;
+    /* background-color: #8e91c5; */
     /* color: wheat; */
     /* height: 50px; */
     /* justify-items: center;
     align-items: center; */
     /* margin-left: 40px; */
     padding-left: 50px;
+    color: white;
 }
 .dasDiv{
+    width: 580px;
     display: flex;
     gap: 40px;
-    
+     /* border-block-color: red; */
+    /* background-color: #8e91c5; */
+    /* color: wheat; */
+    /* height: 50px; */
+    /* justify-items: center;
+    align-items: center; */
+    /* margin-left: 40px; */
     /* border-block-color: red; */
 }

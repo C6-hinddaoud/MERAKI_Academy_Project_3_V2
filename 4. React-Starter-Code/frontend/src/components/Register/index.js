@@ -3,7 +3,11 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "./style.css";
 
-
+const ErrorMessage = {
+  color: "white",
+  backgroundcolor:"red",
+  fontSize: "13px"
+ }
 const Register = () => {
 const [firstName, setfirstName] = useState("");
 const [lastName, setlastName] = useState("");
@@ -38,6 +42,7 @@ const addUser = () => {
 
   return (
     <div className="regDiv">
+      
       <h1> Register </h1>
       <input
         onChange={(e) => {
@@ -72,10 +77,11 @@ const addUser = () => {
 <input onChange={(e)=>{setEmail(e.target.value)} }  type={"text"} placeholder={"Email"}></input>
 
       <input onChange={(e)=>{setpassword(e.target.value)} }  type={"password"} placeholder={" Password"}></input>
-      <button onClick={addUser}> Register</button>
-<div  className="reqMessage">
+      <button className="btnRegester" onClick={addUser}> Register</button>
+<div className="reqMessage">
       <label>{message}</label>
       </div>
+    
     </div>
   );
 };

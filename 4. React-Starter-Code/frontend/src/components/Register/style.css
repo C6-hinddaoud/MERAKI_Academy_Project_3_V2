@@ -7,10 +7,16 @@ border: 2px rgb(178, 178, 227) solid;
     height: 500px;
     align-self: center;
     justify-self: center;
+    margin-top: 58px;
     /* grid-template-columns: ; */
 }
 .reqMessage{
 
     color: white;
     background-color:rgb(121, 123, 157)
+}
+.btnRegester {
+    color: white;
+    background: darkblue;
+    border-color:  darkblue;
 }

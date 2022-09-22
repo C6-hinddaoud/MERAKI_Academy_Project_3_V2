@@ -27,7 +27,7 @@ const[token,setToken]= useState("")
    <tokenContext.Provider value={token} >
    */}
     <div className="App">
-<div>
+<div  className="appinDev">
 <Navbar/>
       <Routes>
       

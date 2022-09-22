@@ -133,7 +133,7 @@ const getallartical=()=>{
   };
 
   return (
-    <div className="navDiv">
+    <div className="main div">
       <div>
         {articaData == undefined ? (
           <h1>no artical</h1>
@@ -143,13 +143,13 @@ const getallartical=()=>{
               return (
                 <div className="artDiv">
                   <div>
-                    <h3>title:{elem.title}</h3>
-                    <p> description:{elem.description}</p>
+                    <h3>Title:{elem.title}</h3>
+                    <p> Description:{elem.description}</p>
                    
 {
     elem.comments.map((element)=>{
 
-        return( <p>"comment:"{element.comment}</p>)
+        return( <p>Comment:{element.comment}</p>)
     })
 }
 
@@ -159,16 +159,20 @@ const getallartical=()=>{
 
 
                     {elem.author == userId && (
-                      <div>
-                        <button
+                      
+                      <div className="articalDev">
+                        <div>
+                        <button className="buttondash"
                           onClick={() => {
                             Delete(elem._id);
                           }}
                         >
                          
                           Delete
-                        </button>
-                        <button
+                        </button >
+                        </div>
+                        <div>
+                        <button className="buttondash"
                           onClick={() => {
                             upDate(elem._id);
                           }}
@@ -176,22 +180,25 @@ const getallartical=()=>{
                           
                           update
                         </button>
-
+                        </div>
+                        <div>
                         <input
                           onChange={(e) => {
                             setTitle(e.target.value);
                           }}
                           type={"text"}
-                          placeholder={"text"}
+                          placeholder={"Artical"}
                         ></input>
-
-                        <input
+                        </div>
+<div>
+                        <textarea
                           onChange={(e) => {
                             setDescription(e.target.value);
                           }}
-                          type={"text"}
+                          type={"textarea"} 
                           placeholder={"description"}
-                        ></input>
+                          ></textarea>
+                          </div>
                       </div>
 
 
@@ -199,13 +206,9 @@ const getallartical=()=>{
                     )}
 
                     
-                    <p>{elem._id}</p>
+                    {/* <p>{elem._id}</p> */}
                    
-                   
-                     
-                  </div>
-
-                  <div>
+                    <div>
                     <input
                       onChange={(e) => {
                         setComment(e.target.value);
@@ -214,7 +217,7 @@ const getallartical=()=>{
                       placeholder={"comment"}
                     ></input>
 
-                    <button
+                    <button className="buttondash"
                       onClick={() => {
                         addComment(elem._id);
                       }}
@@ -223,6 +226,10 @@ const getallartical=()=>{
                       Comment
                     </button>
                   </div>
+                     
+                  </div>
+
+                 
                 </div>
               );
             })}

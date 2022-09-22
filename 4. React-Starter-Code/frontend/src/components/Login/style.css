@@ -8,3 +8,13 @@
     justify-self: center;
 
 }
+.btnlogin {
+    color: white;
+    background: darkblue;
+    border-color:  darkblue;
+}
+.msqlogon{
+
+    color: white;
+    background-color:rgb(121, 123, 157)
+}

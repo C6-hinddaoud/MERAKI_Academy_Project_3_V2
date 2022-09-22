@@ -5,3 +5,26 @@
     border: 2px rgb(157, 157, 224) solid;
     /* background-color:rgb(157, 157, 224) ; */
 }
+.main div{
+    /* border: 2px rgb(157, 157, 224) solid; */
+    background-color: #dddee8;
+    justify-content: center;
+    gap: 10px;
+}
+.articalDev{
+    display: grid;
+    /* grid-auto-flow: row; */
+    grid-auto-columns: minmax(200px,auto);
+}
+.buttondash{
+    width: 200px;
+    color:  white;
+    background-color: darkblue;
+    margin: 10px;
+}
+h3{
+    color: blueviolet;
+}
+p{
+    color: darkblue;
+}

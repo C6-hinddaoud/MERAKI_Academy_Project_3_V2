@@ -23,7 +23,7 @@ const settrue=isTuree.setIsLoggedIn
 
 
 </div>:
-<div className=" dasDiv">
+<div className="dasDiv navDiv">
 <div className="DashNav" onClick={()=>{navigate('/Dashboard')}} > Dashboard</div>
 <div className="logNav" onClick={()=>{navigate( "/AddArticle")}} >AddArticle</div>
 <div className="bakNav" onClick={()=>{navigate(-1)}}>GO Back</div>

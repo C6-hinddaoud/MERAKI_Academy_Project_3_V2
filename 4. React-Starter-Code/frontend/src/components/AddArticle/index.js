@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { tokenContext } from "../../App";
 import { BoleanContext } from "../../App";
+import './style.css'
 const AddArticle = () => {
   //const token = useContext(tokenContext);
   const BoleanCon = useContext(BoleanContext);
@@ -46,12 +47,17 @@ const AddArticle = () => {
   return (
     <>
       <div>AddArticle</div>
+      <div className="mainArtic">
+        <div>
+      <input className="artElem" onChange={(e)=>{setTitle(e.target.value)} }  type={"text"} placeholder={"Artical"}></input>
+      </div>
       <div>
-      <input onChange={(e)=>{setTitle(e.target.value)} }  type={"text"} placeholder={"text"}></input>
-
-      <input onChange={(e)=>{setDescription(e.target.value)} }  type={"text"} placeholder={"description"}></input>
-        <button onClick={AddNewArticle}> AddArtical</button>
-       <div> <label>{message}</label></div>
+      <input className="artElem"  onChange={(e)=>{setDescription(e.target.value)} }  type={"text"} placeholder={"description"}></input>
+      </div>
+      <div>
+        <button className="artElem btnartElem "  onClick={AddNewArticle}> AddArtical</button>
+        </div>
+       <div> <label className="artElem"  >{message}</label></div>
       </div>
     </>
   );

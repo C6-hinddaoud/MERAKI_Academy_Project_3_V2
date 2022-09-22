@@ -1,0 +1,14 @@
+.mainArtic{
+border: 2px darkblue solid;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.artElem{
+width: 400px;
+
+} 
+ .btnartElem {
+    color: white;
+    background-color: darkblue;
+}

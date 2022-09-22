@@ -81,11 +81,11 @@ const SetBoleanCon=BoleanCon.setIsLoggedIn
         type={"password"}
         placeholder={"Password"}
       ></input>
-      <button onClick={ loginFun 
+      <button className="btnlogin" onClick={ loginFun 
       
     
     }> login</button>
-      <h3>{message}</h3>
+      <h3 className="msqlogon">{message}</h3>
     </div>
   );
 };
