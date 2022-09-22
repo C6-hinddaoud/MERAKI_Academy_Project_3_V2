@@ -18,6 +18,7 @@ const Register = () => {
   const [ADMIN, setADMIN] = useState("6328d052565694a02a797353");
   const [USER, setUSER] = useState("632b477c77a3ea1a3b138f36");
   const [message, setMessage] = useState("");
+  let v=false;
   const addUser = () => {
     axios
       .post("http://localhost:5000/Users", {
@@ -32,10 +33,13 @@ const Register = () => {
       .then((response) => {
        
         setMessage(response.data.message);
+         v=true
+         console.log(v)
       })
       .catch((err) => {
        
         setMessage(err.response.data.message);
+        
       });
   };
 
@@ -90,9 +94,14 @@ const Register = () => {
         {" "}
         Register
       </button>
-      <div className="reqMessage">
+    
+      {v ? <div className="reqMessage">
+        <label>{message}</label>
+      </div>:
+      <div className="ERRMessage">
         <label>{message}</label>
       </div>
+}
     </div>
   );
 };

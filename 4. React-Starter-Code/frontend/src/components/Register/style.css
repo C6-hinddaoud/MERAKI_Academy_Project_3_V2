@@ -20,3 +20,8 @@ border: 2px rgb(178, 178, 227) solid;
     background: darkblue;
     border-color:  darkblue;
 }
+.ERRMessage{
+    color: white;
+    background:red;
+    border-color:  red;
+}
