@@ -9,6 +9,7 @@ const Navbar = () => {
   const isTuree = useContext(BoleanContext);
   const isTure = isTuree.isLoggedIn;
   const settrue = isTuree.setIsLoggedIn;
+  const settoken=isTuree.setToken
   //isLoggedIn,setIsLoggedIn
   return !isTure ? (
     <div className="navDiv">
@@ -67,10 +68,11 @@ const Navbar = () => {
         GO Back
       </div>
       <div
-        className="bakNav"
+        className="logoutDiv"
         onClick={() => {
           navigate("/login");
           settrue(false);
+          settoken(null)
         }}
       >
         Log out

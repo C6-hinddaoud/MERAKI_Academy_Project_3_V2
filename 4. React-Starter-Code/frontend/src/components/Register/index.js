@@ -15,7 +15,7 @@ const Register = () => {
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
-  const [ADMIN, setADMIN] = useState("6328d052565694a02a797353");
+ // const [ADMIN, setADMIN] = useState("6328d052565694a02a797353");
   const [USER, setUSER] = useState("632b477c77a3ea1a3b138f36");
   const [message, setMessage] = useState("");
   let v=false;
@@ -98,6 +98,9 @@ const Register = () => {
       {v ? <div className="reqMessage">
         <label>{message}</label>
       </div>:
+
+
+
       <div className="ERRMessage">
         <label>{message}</label>
       </div>
