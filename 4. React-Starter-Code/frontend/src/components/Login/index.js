@@ -1,27 +1,26 @@
 import React from "react";
 import { useState, useEffect, useCallback, useContext } from "react";
 import { BoleanContext, tokenContext } from "../../App";
-import { setBoleanContext} from "../../App";
+import { setBoleanContext } from "../../App";
 import Dashboard from "../Dashboard";
 import { settokenContext } from "../../App";
 //import { BoleanContext } from "../../App";
 import { Link, useNavigate } from "react-router-dom";
-
 
 import axios from "axios";
 import "./style.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  
- // const SetToken = useContext(settokenContext);
- // const token = useContext(tokenContext);
- // const setBoleanCon = useContext(setBoleanContext);
+
+  // const SetToken = useContext(settokenContext);
+  // const token = useContext(tokenContext);
+  // const setBoleanCon = useContext(setBoleanContext);
   const BoleanCon = useContext(BoleanContext);
-  const token=BoleanCon.token
-  const SetToken=BoleanCon.setToken
-const SetBoleanCon=BoleanCon.setIsLoggedIn
-const tru=BoleanCon.BoleanCon
+  const token = BoleanCon.token;
+  const SetToken = BoleanCon.setToken;
+  const SetBoleanCon = BoleanCon.setIsLoggedIn;
+  const tru = BoleanCon.BoleanCon;
   //console.log("settt", useContext(tokenContext));
   //console.log("settt", useContext(tokenContext)).token
 
@@ -36,27 +35,21 @@ const tru=BoleanCon.BoleanCon
         // role: ADMIN,
       })
       .then((response) => {
-        // console.log("kj");
-        // console.log(response);
+        
         setMessage(response.data.message);
         SetToken(response.data.token);
-        SetBoleanCon(true)
-        // console.log(response.data);
-        // console.log("tokenb", token);
+        SetBoleanCon(true);
         
-        {navigate('/Dashboard')}
-            
-            
-            
-        
+
+        {
+          navigate("/Dashboard");
+        }
       })
       .catch((err) => {
         setMessage(err.response.data.message);
-        SetBoleanCon(false)
-       // console.log(err);
+        SetBoleanCon(false);
+        // console.log(err);
       });
-
-
   };
 
   return (
@@ -81,14 +74,17 @@ const tru=BoleanCon.BoleanCon
         type={"password"}
         placeholder={"Password"}
       ></input>
-      <button className="btnlogin" onClick={ loginFun 
-      
-    
-    }> login</button>
-    { tru? <div>
-      <h3 className="msqlogon">{message}</h3>
-        </div>:<h3 className="msqfalse">{message}</h3>
-}
+      <button className="btnlogin" onClick={loginFun}>
+        {" "}
+        login
+      </button>
+      {tru ? (
+        <div>
+          <h3 className="msqlogon">{message}</h3>
+        </div>
+      ) : (
+        <h3 className="msqfalse">{message}</h3>
+      )}
     </div>
   );
 };

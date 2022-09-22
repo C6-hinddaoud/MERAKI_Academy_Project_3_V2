@@ -17,30 +17,29 @@ const Dashboard = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-const getallartical=()=>{
+  const getallartical = () => {
     axios
-    .get("http://localhost:5000/articles", {
-      headers: {
-        authorization: "Bearer " + token,
-      },
-    })
-    .then((response) => {
-      console.log("hind");
-      setarticaData(response.data.articles);
-      console.log("am", response.data);
-      setUserId(response.data.userId);
-      console.log(userId);
-      setMessage(response.data.message);
-    })
-    .catch((err) => {
-      setMessage(err.response.data.message);
-      console.log("pppppppp", token);
+      .get("http://localhost:5000/articles", {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        console.log("hind");
+        setarticaData(response.data.articles);
+        console.log("am", response.data);
+        setUserId(response.data.userId);
+        console.log(userId);
+        setMessage(response.data.message);
+      })
+      .catch((err) => {
+        setMessage(err.response.data.message);
+        console.log("pppppppp", token);
 
-      console.log("rasha");
-      console.log(err);
-    });
-}
-
+        console.log("rasha");
+        console.log(err);
+      });
+  };
 
   const Delete = (id) => {
     console.log("lkij");
@@ -50,7 +49,7 @@ const getallartical=()=>{
         console.log("bbhbhbhb");
         console.log("cc", response.data);
         console.log("ll", response.data);
-        getallartical()
+        getallartical();
       })
       .catch((err) => {
         // console.log(id)
@@ -60,23 +59,21 @@ const getallartical=()=>{
   };
 
   const upDate = (id) => {
-    console.log("mo");
+    
     axios
       .put(`http://localhost:5000/articles/${id}`, { title, description })
       .then((response) => {
-        getallartical()
+        getallartical();
       })
       .catch((err) => {
-        // console.log(id)
-        console.log("ahmad");
+        
+        
         throw err;
       });
   };
 
-
-
   useEffect(() => {
-    getallartical()
+    getallartical();
     // axios
     //   .get("http://localhost:5000/articles", {
     //     headers: {
@@ -98,14 +95,13 @@ const getallartical=()=>{
     //     console.log("rasha");
     //     console.log(err);
     //   });
-  }, []);   //upDate//Delete
+  }, []); //upDate//Delete
 
   const navigate = useNavigate();
   const [comment, setComment] = useState("");
-//http://localhost:5000/22/comments/
+  //http://localhost:5000/22/comments/
   const addComment = (id) => {
-    console.log("tok", token);
-    console.log("id", id);
+   
     axios
       .post(
         `http://localhost:5000/articles/${id}/comments/`,
@@ -119,16 +115,13 @@ const getallartical=()=>{
         }
       )
       .then((response) => {
-        console.log("hind");
-        getallartical()
+        
+        getallartical();
         setMessage(response.data.message);
       })
       .catch((err) => {
         setMessage(err.response.data.message);
-        console.log("pppppppp", token);
-
-        console.log("rasha");
-        console.log(err);
+        
       });
   };
 
@@ -145,91 +138,75 @@ const getallartical=()=>{
                   <div>
                     <h3>Title:{elem.title}</h3>
                     <p> Description:{elem.description}</p>
-                   
-{
-    elem.comments.map((element)=>{
 
-        return( <p>Comment:{element.comment}</p>)
-    })
-}
-
-
-
-
-
+                    {elem.comments.map((element) => {
+                      return <p>Comment:{element.comment}</p>;
+                    })}
 
                     {elem.author == userId && (
-                      
                       <div className="articalDev">
                         <div>
-                        <button className="btnDelet"
-                          onClick={() => {
-                            Delete(elem._id);
-                          }}
-                        >
-                         
-                          Delete
-                        </button >
+                          <button
+                            className="btnDelet"
+                            onClick={() => {
+                              Delete(elem._id);
+                            }}
+                          >
+                            Delete
+                          </button>
                         </div>
                         <div>
-                        <button className="buttondash"
-                          onClick={() => {
-                            upDate(elem._id);
-                          }}
-                        >
-                          
-                          update
-                        </button>
+                          <button
+                            className="buttondash"
+                            onClick={() => {
+                              upDate(elem._id);
+                            }}
+                          >
+                            update
+                          </button>
                         </div>
                         <div>
-                        <input
-                          onChange={(e) => {
-                            setTitle(e.target.value);
-                          }}
-                          type={"text"}
-                          placeholder={"Artical"}
-                        ></input>
+                          <input
+                            onChange={(e) => {
+                              setTitle(e.target.value);
+                            }}
+                            type={"text"}
+                            placeholder={"Artical"}
+                          ></input>
                         </div>
-<div>
-                        <textarea
-                          onChange={(e) => {
-                            setDescription(e.target.value);
-                          }}
-                          type={"textarea"} 
-                          placeholder={"description"}
+                        <div>
+                          <textarea
+                            onChange={(e) => {
+                              setDescription(e.target.value);
+                            }}
+                            type={"textarea"}
+                            placeholder={"description"}
                           ></textarea>
-                          </div>
+                        </div>
                       </div>
-
-
-
                     )}
 
-                    
                     {/* <p>{elem._id}</p> */}
-                   
+
                     <div>
-                    <input
-                      onChange={(e) => {
-                        setComment(e.target.value);
-                      }}
-                      type={"text"}
-                      placeholder={"comment"}
-                    ></input>
+                      <input
+                        onChange={(e) => {
+                          setComment(e.target.value);
+                        }}
+                        type={"text"}
+                        placeholder={"comment"}
+                      ></input>
 
-                    <button className="buttondash"
-                      onClick={() => {
-                        addComment(elem._id);
-                      }}
-                    >
-                      
-                      Comment
-                    </button>
+                      <button
+                        className="buttondash"
+                        onClick={() => {
+                          addComment(elem._id);
+                        }}
+                      >
+                        Comment
+                      </button>
+                    </div>
                   </div>
-                     
-                  </div>
-
-                 
                 </div>
               );
             })}
