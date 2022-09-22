@@ -162,7 +162,7 @@ const getallartical=()=>{
                       
                       <div className="articalDev">
                         <div>
-                        <button className="buttondash"
+                        <button className="btnDelet"
                           onClick={() => {
                             Delete(elem._id);
                           }}

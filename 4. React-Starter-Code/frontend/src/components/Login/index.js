@@ -21,7 +21,7 @@ const Login = () => {
   const token=BoleanCon.token
   const SetToken=BoleanCon.setToken
 const SetBoleanCon=BoleanCon.setIsLoggedIn
-
+const tru=BoleanCon.BoleanCon
   //console.log("settt", useContext(tokenContext));
   //console.log("settt", useContext(tokenContext)).token
 
@@ -85,7 +85,10 @@ const SetBoleanCon=BoleanCon.setIsLoggedIn
       
     
     }> login</button>
+    { tru? <div>
       <h3 className="msqlogon">{message}</h3>
+        </div>:<h3 className="msqfalse">{message}</h3>
+}
     </div>
   );
 };
