@@ -12,6 +12,7 @@
     gap: 10px;
 }
 .articalDev{
+    border: 2px blueviolet solid;
     display: grid;
     /* grid-auto-flow: row; */
     grid-auto-columns: minmax(200px,auto);
